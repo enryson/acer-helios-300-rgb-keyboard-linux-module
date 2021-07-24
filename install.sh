@@ -12,7 +12,8 @@ fi
 
 # compile the kernel module
 make
-
+make install
+make onboot
 # remove previous acer_wmi module
 rmmod acer_wmi
 
@@ -22,6 +23,7 @@ modprobe sparse-keymap
 modprobe video
 
 # install facer module
-insmod src/facer.ko
+# insmod src/facer.ko
+modprobe facer
 dmesg | tail -n 10
 echo "[*] Done"
